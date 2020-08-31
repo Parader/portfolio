@@ -1,0 +1,210 @@
+header {
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 88px;
+
+  &:after {
+    content: "";
+    position: fixed;
+    top: 88px;
+    width: 100%;
+    left: 0;
+    height: 20px;
+  }
+  .left {
+    width: 100%;
+    max-width: 236px;
+    padding: var(--padding-small);
+    @media (max-width: 1080px) {
+      padding: var(--padding-small) calc(var(--padding-smaller) + 2px);
+    }
+    @media (max-width: 600px) {
+      max-width: 80px;
+    }
+    @media (max-width: 560px) {
+      padding: var(--padding-small) calc(var(--padding-smaller) - 4px);
+    }
+    .logo {
+      display: block;
+      max-height: 45px;
+      overflow: hidden;
+      svg {
+        width: 560px;
+        height: 120px;
+        transform: translate(
+          calc(-100% + 170px + 24px),
+          calc(-100% + 30px + 14px)
+        );
+        &.loading {
+          #rect {
+            transform: translate(0px, 0px);
+          }
+          #name {
+            animation-play-state: paused;
+          }
+          #role {
+            animation-play-state: paused;
+          }
+        }
+        &.loaded {
+          #name {
+            animation: none;
+            clip-path: inset(-1px -1px -1px 260px);
+            transform: translate(526px, 167px);
+            transition: transform 250ms $smoothTransition,
+              clip-path 250ms $smoothTransition;
+          }
+          #role {
+            animation: none;
+            clip-path: inset(-1px -1px -1px 280px);
+            transform: translate(506px, 167px);
+            transition: transform 250ms $smoothTransition,
+              clip-path 250ms $smoothTransition;
+          }
+          #rect {
+            transition-delay: 0ms;
+          }
+          &:hover {
+            @media (min-width: 600px) {
+              #rect {
+                transform: translate(37%, 50%);
+                transition: transform 300ms $smoothTransition;
+
+                transition-delay: 0ms;
+              }
+              #name {
+                clip-path: inset(-1px -1px -1px -1px);
+                transform: translate(786px, 167px);
+              }
+              #role {
+                clip-path: inset(-1px -1px -1px -1px);
+                transform: translate(786px, 167px);
+              }
+              .wrap {
+              }
+            }
+          }
+        }
+        #rect {
+          transform: translate(50%, 50%);
+          transition: transform 600ms linear;
+          transition-delay: 1200ms;
+        }
+        #name {
+          animation: nameIn 1800ms cubic-bezier(0, 0.19, 0.3, 1);
+          animation-play-state: running;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 1;
+        }
+        #role {
+          animation: roleIn 1800ms cubic-bezier(0, 0.19, 0.3, 1);
+          animation-play-state: running;
+          animation-fill-mode: forwards;
+        }
+        .wrap {
+        }
+      }
+    }
+  }
+  &.loading {
+    .right {
+      ul {
+        li {
+          a {
+            clip-path: inset(-1px 100% -1px -1px);
+            transform: translateX(100px);
+          }
+        }
+      }
+    }
+  }
+  .right {
+    ul {
+      margin: 0;
+      padding: var(--padding-tiny) var(--padding-small);
+      @media (max-width: 1080px) {
+        padding: var(--padding-tiny) var(--padding-tiny);
+      }
+      @media (max-width: 350px) {
+        padding: var(--padding-tiny) 0;
+      }
+      li {
+        display: inline-block;
+        list-style-type: none;
+        margin: 0;
+        &:hover {
+          cursor: pointer;
+        }
+        a {
+          display: block;
+          clip-path: inset(-1px -1px -1px -1px);
+          transform: translateX(0px);
+          transition: transform 400ms $smoothTransition,
+            clip-path 400ms $smoothTransition;
+          transition-delay: 1200ms;
+          padding: var(--padding-small) var(--padding-small);
+          font-size: 16px;
+          text-decoration: none;
+          color: $dark;
+          @media (max-width: 767px) {
+            padding: var(--padding-small) var(--padding-smaller);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes nameIn {
+  0% {
+    clip-path: inset(-1px -1px 30px -1px);
+    transform: translate(786px, 217px);
+  }
+  25% {
+    clip-path: inset(-1px -1px -1px -1px);
+    transform: translate(786px, 167px);
+  }
+  70% {
+    clip-path: inset(-1px -1px -1px -1px);
+    transform: translate(786px, 165px);
+  }
+  100% {
+    clip-path: inset(-1px -1px -1px 260px);
+    transform: translate(526px, 167px);
+  }
+}
+
+@keyframes roleIn {
+  0% {
+    clip-path: inset(30px -1px -1px -1px);
+    transform: translate(786px, 137px);
+  }
+  25% {
+    clip-path: inset(-1px -1px -1px -1px);
+    transform: translate(786px, 167px);
+  }
+  70% {
+    clip-path: inset(-1px -1px -1px -1px);
+    transform: translate(786px, 165px);
+  }
+  100% {
+    clip-path: inset(-1px -1px -1px 280px);
+    transform: translate(506px, 167px);
+  }
+}
+
+@keyframes nameHover {
+  0% {
+    clip-path: inset(-1px -1px -1px 260px);
+    transform: translate(526px, 167px);
+  }
+  100% {
+    clip-path: inset(-1px -1px -1px -1px);
+    transform: translate(786px, 167px);
+  }
+}
