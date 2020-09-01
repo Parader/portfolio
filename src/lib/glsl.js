@@ -32,7 +32,7 @@ const canvas = document.getElementsByTagName("canvas")[0]
 resizeCanvas()
 
 let config = {
-  SIM_RESOLUTION: 32,
+  SIM_RESOLUTION: 64,
   DYE_RESOLUTION: 1024,
   CAPTURE_RESOLUTION: 512,
   DENSITY_DISSIPATION: 3,
@@ -1751,21 +1751,8 @@ function correctRadius(radius) {
 // window.addEventListener("mousedown", e => {
 // splatStack.push(parseInt(Math.random() * 20) + 5)
 
-let posX = scaleByPixelRatio(0) //e.offsetX)
-let posY = scaleByPixelRatio(0) //e.offsetY)
-let pointer = pointers.find(p => p.id == -1)
-if (pointer == null) pointer = new pointerPrototype()
-updatePointerDownData(pointer, -1, posX, posY)
-// })
-let p1 = window.fluidSimulation.pointers.find(p => p.id == 5)
-if (p1 == null) p1 = new pointerPrototype()
-const ball1 = {
-  id: 5,
-  proto: p1,
-  x: scaleByPixelRatio(window.innerWidth * 0.7),
-  y: scaleByPixelRatio(window.innerHeight * 0.4),
-}
-window.fluidSimulation.pointers.push(ball1)
+gsap.defaults({ ease: Linear.easeNone })
+gsap.registerPlugin(TextPlugin)
 
 // let p2 = window.fluidSimulation.pointers.find(p => p.id == 1)
 // if (p2 == null) p2 = new pointerPrototype()
@@ -1783,39 +1770,9 @@ window.fluidSimulation.pointers.push(ball1)
 // window.fluidSimulation.pointers.push(p3)
 
 // if (pointer == null) pointer = new pointerPrototype()
-updatePointerDownData(ball1.proto, 5, ball1.x, ball1.y)
+
 // updatePointerDownData(p2, 1, p2.pos.x, p2.pos.y)
 // updatePointerDownData(p3, 2, p3.pos.x, p3.pos.y)
-
-const tl = gsap.timeline({
-  repeat: -1,
-  onUpdate: () => {
-    updatePointerMoveData(p1, ball1.x, ball1.y)
-    // updatePointerMoveData(p2, p2.pos.x, p2.pos.y)
-  },
-})
-gsap.defaults({ ease: Linear.easeNone })
-gsap.registerPlugin(TextPlugin)
-//
-tl.add("start")
-  .to(
-    ball1,
-    3.5,
-    {
-      x: "+=40",
-      // y: "+=20",
-    },
-    "start+=0"
-  )
-  .to(
-    ball1,
-    2.5,
-    {
-      x: "-=40",
-      // y: "-=20",
-    },
-    "start+=3.5"
-  )
 
 // .to([pos, pos2, pos3], 3, {
 //   x: "-=20",
@@ -1845,59 +1802,39 @@ tl.add("start")
 //   },
 // })
 
-window.addEventListener("mousemove", e => {
-  let pointer = pointers[0]
-  if (!pointer.down) return
-  let posX = scaleByPixelRatio(e.x)
-  let posY = scaleByPixelRatio(e.y)
-  updatePointerMoveData(pointer, posX, posY)
-})
+// window.addEventListener("mousemove", e => {
+// let pointer = window.fluidSimulation.pointers.find(p => p === "footer_ball")
+//   .proto
+// if (!pointer.down) return
+// let posX = scaleByPixelRatio(e.x)
+// let posY = scaleByPixelRatio(e.y)
+// updatePointerMoveData(pointer, posX, posY)
+// })
 
 // window.addEventListener("mouseup", () => {
 //   updatePointerUpData(pointers[0])
 // })
 
-window.addEventListener("touchstart", e => {
-  // e.preventDefault()
-  const touches = e.targetTouches
-  while (touches.length >= pointers.length)
-    pointers.push(new pointerPrototype())
-  for (let i = 0; i < touches.length; i++) {
-    let posX = scaleByPixelRatio(touches[i].pageX)
-    let posY = scaleByPixelRatio(touches[i].pageY)
-    updatePointerDownData(pointers[i + 1], touches[i].identifier, posX, posY)
-  }
-})
+// window.addEventListener(
+//   "touchmove",
+//   e => {
+//     // e.preventDefault()
+//     const touches = e.targetTouches
+//     for (let i = 0; i < touches.length; i++) {
+//       let pointer = pointers[i + 1]
+//       if (!pointer.down) continue
+//       let posX = scaleByPixelRatio(touches[i].pageX)
+//       let posY = scaleByPixelRatio(touches[i].pageY)
+//       updatePointerMoveData(pointer, posX, posY)
+//     }
+//   },
+//   false
+// )
 
-window.addEventListener(
-  "touchmove",
-  e => {
-    // e.preventDefault()
-    const touches = e.targetTouches
-    for (let i = 0; i < touches.length; i++) {
-      let pointer = pointers[i + 1]
-      if (!pointer.down) continue
-      let posX = scaleByPixelRatio(touches[i].pageX)
-      let posY = scaleByPixelRatio(touches[i].pageY)
-      updatePointerMoveData(pointer, posX, posY)
-    }
-  },
-  false
-)
-
-window.addEventListener("touchend", e => {
-  const touches = e.changedTouches
-  for (let i = 0; i < touches.length; i++) {
-    let pointer = pointers.find(p => p.id == touches[i].identifier)
-    if (pointer == null) continue
-    updatePointerUpData(pointer)
-  }
-})
-
-window.addEventListener("keydown", e => {
-  if (e.code === "KeyP") config.PAUSED = !config.PAUSED
-  if (e.key === " ") splatStack.push(parseInt(Math.random() * 20) + 5)
-})
+// window.addEventListener("keydown", e => {
+//   if (e.code === "KeyP") config.PAUSED = !config.PAUSED
+//   if (e.key === " ") splatStack.push(parseInt(Math.random() * 20) + 5)
+// })
 
 function updatePointerUpData(pointer) {
   pointer.down = false
@@ -1921,7 +1858,7 @@ function generateColor() {
   // c.g *= 0.15
   // c.b *= 0.15
   let randomNumber = Math.round(Math.random() * 6) + 1
-
+  randomNumber = 4
   switch (randomNumber) {
     case 1:
       c = { r: 0.6, g: 0.2, b: 0 }
@@ -2038,7 +1975,7 @@ function getTextureScale(texture, width, height) {
   }
 }
 
-function scaleByPixelRatio(input) {
+export function scaleByPixelRatio(input) {
   let pixelRatio = window.devicePixelRatio || 1
   return Math.floor(input * pixelRatio)
 }

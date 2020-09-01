@@ -6,33 +6,47 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  height: 88px;
+  height: 78px;
 
-  &:after {
-    content: "";
-    position: fixed;
-    top: 88px;
-    width: 100%;
-    left: 0;
-    height: 20px;
-  }
+  background: $whitefont;
+
   .left {
     width: 100%;
     max-width: 236px;
-    padding: var(--padding-small);
+    padding: var(--padding-smaller) var(--padding-small) var(--padding-small);
     @media (max-width: 1080px) {
-      padding: var(--padding-small) calc(var(--padding-smaller) + 2px);
+      padding: var(--padding-smaller) calc(var(--padding-smaller) + 2px);
     }
     @media (max-width: 600px) {
       max-width: 80px;
     }
     @media (max-width: 560px) {
-      padding: var(--padding-small) calc(var(--padding-smaller) - 4px);
+      padding: var(--padding-smaller) calc(var(--padding-smaller) - 4px);
     }
     .logo {
       display: block;
       max-height: 45px;
       overflow: hidden;
+      &:focus {
+        svg.loaded {
+          @media (min-width: 600px) {
+            #rect {
+              transform: translate(37%, 50%);
+              transition: transform 300ms $smoothTransition;
+
+              transition-delay: 0ms;
+            }
+            #name {
+              clip-path: inset(-1px -1px -1px -1px);
+              transform: translate(786px, 167px);
+            }
+            #role {
+              clip-path: inset(-1px -1px -1px -1px);
+              transform: translate(786px, 167px);
+            }
+          }
+        }
+      }
       svg {
         width: 560px;
         height: 120px;
@@ -126,12 +140,12 @@ header {
   .right {
     ul {
       margin: 0;
-      padding: var(--padding-tiny) var(--padding-small);
+      padding: 0 var(--padding-small);
       @media (max-width: 1080px) {
-        padding: var(--padding-tiny) var(--padding-tiny);
+        padding: 0 var(--padding-tiny);
       }
       @media (max-width: 350px) {
-        padding: var(--padding-tiny) 0;
+        padding: 0;
       }
       li {
         display: inline-block;

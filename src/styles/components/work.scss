@@ -389,6 +389,12 @@
               left: -45px;
               top: -9px;
               background: #5701b0;
+
+              // background: linear-gradient(
+              //   -30deg,
+              //   rgba(160, 10, 230, 1) 0%,
+              //   rgba(70, 50, 215, 1) 50%
+              // );
               width: calc(100% + 80px);
               height: 52px;
               z-index: -1;
@@ -490,8 +496,8 @@
                 height: 100%;
                 background: linear-gradient(
                   -30deg,
-                  rgba(180, 20, 150, 1),
-                  rgba(80, 50, 255, 1)
+                  rgba(0, 40, 150, 1) 0%,
+                  rgba(0, 185, 235, 1) 90%
                 );
               }
               &:last-child {

@@ -4,6 +4,7 @@ import {
   pointerPrototype,
   updatePointerMoveData,
   updatePointerDownData,
+  scaleByPixelRatio,
 } from "../lib/glsl"
 import gsap from "gsap"
 
@@ -12,7 +13,52 @@ const Intro = () => {
   const cta = useRef()
 
   useEffect(() => {
+    //ball
+    // })
+    let p1 = window.fluidSimulation.pointers.find(p => p.id == 5)
+    if (p1 == null) p1 = new pointerPrototype()
+    const ball1 = {
+      id: 5,
+      proto: p1,
+      x: scaleByPixelRatio(window.innerWidth * 0.7),
+      y: scaleByPixelRatio(window.innerHeight * 0.4),
+    }
+    window.fluidSimulation.pointers.push(ball1)
+    updatePointerDownData(ball1.proto, 5, ball1.x, ball1.y)
+
+    const tl = gsap.timeline({
+      repeat: -1,
+      onUpdate: () => {
+        updatePointerMoveData(p1, ball1.x, ball1.y)
+        // updatePointerMoveData(p2, p2.pos.x, p2.pos.y)
+      },
+    })
+
+    //
+    tl.add("start")
+      .to(
+        ball1,
+        3.5,
+        {
+          x: "+=40",
+          // y: "+=20",
+        },
+        "start+=0"
+      )
+      .to(
+        ball1,
+        2.5,
+        {
+          x: "-=40",
+          // y: "-=20",
+        },
+        "start+=3.5"
+      )
+
+    // loading useState
     heroSection.current.classList.remove("loading")
+
+    // CTA HOVER EFFECT
     let isHovering = false
     const point = {
       id: "cta_over_1",
@@ -23,8 +69,8 @@ const Intro = () => {
 
     const onOver = e => {
       isHovering = true
-      point.x = e.target.getBoundingClientRect().x
-      point.y = e.target.getBoundingClientRect().y + 36
+      point.x = scaleByPixelRatio(e.target.getBoundingClientRect().x)
+      point.y = scaleByPixelRatio(e.target.getBoundingClientRect().y + 26)
       gsap.to(point, 0.2, {
         x: "+=160",
         onUpdate: () => {
@@ -32,7 +78,7 @@ const Intro = () => {
         },
       })
       window.fluidSimulation.pointers.push(point)
-      updatePointerDownData(point.proto, "cta_over_1", e.pageX, e.pageY)
+      updatePointerDownData(point.proto, "cta_over_1", point.x, point.y)
     }
     const onOut = e => {
       gsap.killTweensOf(point)

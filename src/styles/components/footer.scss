@@ -1,4 +1,5 @@
 footer {
+  position: relative;
   &.loading {
     .container {
       .wrap {
@@ -39,15 +40,16 @@ footer {
       display: flex;
       justify-content: flex-end;
       flex-direction: column;
-      padding: var(--padding-medium) 0 0;
+      padding: var(--padding-small) 0 0;
       text-align: right;
       .cta {
         justify-content: flex-end;
-        clip-path: inset(0px 0px 0px 0px);
+        clip-path: inset(0px -4px 0px -4px);
         transform: translateX(0px);
         transition: clip-path 600ms $smoothTransition,
           transform 600ms $smoothTransition;
         transition-delay: 300ms;
+        padding: 4px 0;
       }
       .social-media {
         display: flex;
@@ -65,6 +67,14 @@ footer {
           transform: translateX(0px);
           path {
             fill: $palefont;
+            transition: fill 350ms $smoothTransition;
+          }
+
+          &:hover {
+            cursor: pointer;
+            path {
+              fill: rgba(0, 165, 215, 1);
+            }
           }
           &:last-child {
             margin-right: 0;
@@ -97,6 +107,14 @@ footer {
         clip-path: inset(0px 0px 0px 0px);
         transition: clip-path 300ms $smoothTransition;
         transition-delay: 800ms;
+        a {
+          color: $palefont;
+          text-decoration: none;
+          transition: color 250ms ease-out;
+          &:hover {
+            color: rgba(0, 165, 215, 1);
+          }
+        }
       }
     }
     .section-title:first-child {
@@ -129,6 +147,11 @@ footer {
     }
     .section-title.off {
       margin: var(--padding-huge) 0 var(--padding-huge);
+      justify-content: flex-end;
+      align-items: flex-end;
+      .title {
+        display: inline-flex;
+      }
       .post-title {
         font-size: 14px;
         top: 5px;
@@ -185,5 +208,19 @@ footer {
       color: $palefont;
       margin: 0 0 var(--padding-small);
     }
+  }
+}
+
+.grabBall {
+  position: fixed;
+  z-index: 102;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+
+  &:hover {
+    cursor: pointer;
   }
 }
