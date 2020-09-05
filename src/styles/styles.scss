@@ -41,6 +41,7 @@ $smoothTransition: cubic-bezier(0.2, 0, 0.2, 1);
 @import "./components/values.scss";
 @import "./components/about.scss";
 @import "./components/footer.scss";
+@import "./components/caseStudies.scss";
 
 * {
   box-sizing: border-box;
@@ -227,6 +228,10 @@ h1 {
   }
 }
 
+.modal-open {
+  overflow: hidden !important;
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -234,7 +239,7 @@ h1 {
   z-index: 120;
   width: 100%;
   min-height: 100vh;
-  background: #f1f1f1;
+  background: #fafafa;
   transition: opacity 350ms $smoothTransition;
   opacity: 1;
   &.loading {
@@ -244,5 +249,16 @@ h1 {
     position: absolute;
     top: 0;
     right: 0;
+    padding: var(--padding-small) var(--padding-medium);
+    &:hover {
+      cursor: pointer;
+    }
+    svg {
+      width: 40px;
+      height: 40px;
+      path {
+        fill: $palefont;
+      }
+    }
   }
 }

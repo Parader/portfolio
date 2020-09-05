@@ -45,7 +45,7 @@ const IndexPage = () => {
         },
       })
       if (pointer2) {
-        gsap.to(pointer2, 0.05, {
+        gsap.to(pointer2, 0.1, {
           y: currentScrollBottom,
           onUpdate: () => {
             if (pointer2 && !pointer2.holding) {
@@ -54,7 +54,7 @@ const IndexPage = () => {
           },
         })
       }
-    }, 10)
+    }, 100)
     window.addEventListener("scroll", onScroll)
 
     return () => {

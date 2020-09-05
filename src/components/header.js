@@ -14,34 +14,39 @@ const Header = () => {
       </div>
       <div className="right">
         <ul>
-          <li>
+          <li className="work">
             <a
               href="/#work"
               onClick={e => {
                 e.preventDefault()
                 scrollTo("#work")
+                document.querySelector("header .work").classList.add("active")
               }}
             >
               Work
             </a>
           </li>
-          <li>
+          <li className="about">
             <a
               href="/#about"
               onClick={e => {
                 e.preventDefault()
                 scrollTo("#about")
+                document.querySelector("header .about").classList.add("active")
               }}
             >
               About
             </a>
           </li>
-          <li>
+          <li className="contact">
             <a
               href="/#contact"
               onClick={e => {
                 e.preventDefault()
                 scrollTo("#contact")
+                document
+                  .querySelector("header .contact")
+                  .classList.add("active")
               }}
             >
               Contact

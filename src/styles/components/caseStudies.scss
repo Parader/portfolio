@@ -1,0 +1,46 @@
+.case-study {
+  max-height: 100vh;
+  overflow-y: scroll;
+  .container {
+    padding: var(--padding-huge) 0;
+    .description {
+      max-width: 560px;
+
+      width: 70%;
+      margin: 0;
+      padding: var(--padding-smaller) var(--padding-small);
+      @media (max-width: 600px) {
+        width: 90%;
+      }
+      @media (max-width: 560px) {
+        padding: var(--padding-smaller) var(--padding-smaller);
+      }
+      .note {
+        font-style: italic;
+        font-size: 90%;
+      }
+    }
+    .gallery {
+      text-align: center;
+    }
+    .footing {
+      .cta {
+        margin-top: var(--padding-huge);
+        justify-content: center;
+        a {
+          margin: 0 var(--padding-small);
+        }
+      }
+    }
+  }
+  &.adrenatrip-case-study {
+    .image1 {
+      max-width: 70%;
+      margin: auto;
+    }
+    .image6 {
+      max-width: 80%;
+      margin: var(--padding-larger) auto;
+    }
+  }
+}

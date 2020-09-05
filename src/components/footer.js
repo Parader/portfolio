@@ -173,14 +173,23 @@ const Foot = () => {
     observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.remove("loading")
-          obs.unobserve(entry.target)
-          updatePointerDownData(point2.proto, "footer_ball", point2.x, point2.y)
-          window.fluidSimulation.pointers.push(point2)
-          setTimeout(() => {
-            startWritingAnimation()
-            cursorTl.resume()
-          }, 1200)
+          if (entry.target.classList.value.indexOf("loading") !== -1) {
+            entry.target.classList.remove("loading")
+            updatePointerDownData(
+              point2.proto,
+              "footer_ball",
+              point2.x,
+              point2.y
+            )
+            window.fluidSimulation.pointers.push(point2)
+            setTimeout(() => {
+              startWritingAnimation()
+              cursorTl.resume()
+            }, 1200)
+          }
+          document.querySelector("header .about").classList.remove("active")
+          document.querySelector("header .work").classList.remove("active")
+          document.querySelector("header .contact").classList.add("active")
         }
       })
     }, options)
@@ -206,7 +215,7 @@ const Foot = () => {
           )[0]
           const pointer = p2.proto
           if (p2 && !p2.holding) {
-            pointer.color = { r: 0.3, g: 0.1, b: 0.7 }
+            pointer.color = { r: 0.12, g: 0.04, b: 0.28 }
             p2.holding = true
             window.fluidSimulation.pointers = [...p, p2]
 

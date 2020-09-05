@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import ProjectBlock from "./projectBlock"
 import AdrenatripLogo from "../images/adrenatrip_logo"
+import CaseStudyAdrenatrip from "./caseStudyAdrenatrip"
+import CaseStudyRecon from "./caseStudyRecon"
+import Modal from "./modal"
 
 const Work = () => {
   const data = useStaticQuery(graphql`
@@ -140,8 +143,12 @@ const Work = () => {
     observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("in")
-          obs.unobserve(entry.target)
+          if (entry.target.classList.value.indexOf("in") === -1) {
+            entry.target.classList.add("in")
+          }
+          document.querySelector("header .about").classList.remove("active")
+          document.querySelector("header .contact").classList.remove("active")
+          document.querySelector("header .work").classList.add("active")
         }
       })
     }, options)
@@ -152,6 +159,8 @@ const Work = () => {
 
     return () => observer.disconnect()
   }, [])
+
+  const [popups, setPopups] = useState({ adrenatrip: false, recon: false })
 
   return (
     <div className="section work-section">
@@ -179,8 +188,17 @@ const Work = () => {
           id={p1.id}
           cta={
             <>
-              <a href="https://adrenatrip.com" target="_blank">
-                View case study
+              <a
+                href="#"
+                onClick={e => {
+                  e.preventDefault()
+                  setPopups({ adrenatrip: true })
+                  document
+                    .getElementsByTagName("html")[0]
+                    .classList.add("modal-open")
+                }}
+              >
+                View project
               </a>
               <a href="https://adrenatrip.com" target="_blank">
                 Visit website
@@ -188,6 +206,23 @@ const Work = () => {
             </>
           }
         />
+        {popups.adrenatrip && (
+          <Modal
+            onClose={() => {
+              document.querySelector(".modal").classList.add("loading")
+              setTimeout(() => {
+                setPopups({ adrenatrip: false })
+              }, 350)
+              document
+                .getElementsByTagName("html")[0]
+                .classList.remove("modal-open")
+            }}
+          >
+            {onClose => {
+              return <CaseStudyAdrenatrip onClose={onClose} />
+            }}
+          </Modal>
+        )}
       </span>
 
       <span ref={p2Ref}>
@@ -216,8 +251,34 @@ const Work = () => {
           suffix={p2.suffix}
           name={p2.name}
           id={p2.id}
-          cta={<button onClick={() => {}}>View case study</button>}
+          cta={
+            <button
+              onClick={e => {
+                e.preventDefault()
+                setPopups({ recon: true })
+                document
+                  .getElementsByTagName("html")[0]
+                  .classList.add("modal-open")
+              }}
+            >
+              View project
+            </button>
+          }
         />
+        {popups.recon && (
+          <Modal
+            onClose={() => {
+              setPopups({ recon: false })
+              document
+                .getElementsByTagName("html")[0]
+                .classList.remove("modal-open")
+            }}
+          >
+            {onClose => {
+              return <CaseStudyRecon onClose={onClose} />
+            }}
+          </Modal>
+        )}
       </span>
 
       <span ref={p3Ref}>
@@ -260,6 +321,7 @@ const Work = () => {
         </div>
       </div>
 
+      <div className="underlay"></div>
       <div className="anchor" id="work"></div>
     </div>
   )

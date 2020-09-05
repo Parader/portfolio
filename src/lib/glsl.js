@@ -40,7 +40,7 @@ let config = {
   PRESSURE: 0.8,
   PRESSURE_ITERATIONS: 20,
   CURL: 5,
-  SPLAT_RADIUS: 0.02,
+  SPLAT_RADIUS: 0.03,
   SPLAT_FORCE: 6000,
   SHADING: true,
   COLORFUL: false,
@@ -1870,7 +1870,7 @@ function generateColor() {
       c = { r: 0.1, g: 0.6, b: 0 }
       break
     case 4:
-      c = { r: 0.2, g: 0.6, b: 0.8 }
+      c = { r: 0.2, g: 0.5, b: 0.7 }
       break
     case 5:
       c = { r: 0.3, g: 0.1, b: 0.7 }
@@ -1886,9 +1886,9 @@ function generateColor() {
       break
   }
 
-  // c.r *= 0.35
-  // c.g *= 0.35
-  // c.b *= 0.35
+  c.r *= 0.2
+  c.g *= 0.2
+  c.b *= 0.2
 
   return c
 }

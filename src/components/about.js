@@ -62,8 +62,12 @@ const About = () => {
     observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.remove("loading")
-          obs.unobserve(entry.target)
+          if (entry.target.classList.value.indexOf("loading") !== -1) {
+            entry.target.classList.remove("loading")
+          }
+          document.querySelector("header .work").classList.remove("active")
+          document.querySelector("header .contact").classList.remove("active")
+          document.querySelector("header .about").classList.add("active")
         }
       })
     }, options)

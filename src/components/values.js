@@ -97,7 +97,6 @@ const Values = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.remove("loading")
-          // entry.target.classList.add("in")
           obs.unobserve(entry.target)
         }
       })

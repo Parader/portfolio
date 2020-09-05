@@ -153,9 +153,22 @@ header {
         margin: 0;
         &:hover {
           cursor: pointer;
+          a {
+            &:after {
+              transform: scaleX(1);
+            }
+          }
+        }
+        &.active {
+          a {
+            &:after {
+              transform: scaleX(1);
+            }
+          }
         }
         a {
           display: block;
+          position: relative;
           clip-path: inset(-1px -1px -1px -1px);
           transform: translateX(0px);
           transition: transform 400ms $smoothTransition,
@@ -167,6 +180,20 @@ header {
           color: $dark;
           @media (max-width: 767px) {
             padding: var(--padding-small) var(--padding-smaller);
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: 16px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: calc(100% - 30px);
+            height: 2px;
+            background: $paleDark;
+            transition: transform 250ms $smoothTransition;
+            // transform-origin: left;
+            transform: scaleX(0);
           }
         }
       }
