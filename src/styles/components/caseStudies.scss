@@ -27,8 +27,16 @@
       .cta {
         margin-top: var(--padding-huge);
         justify-content: center;
+
         a {
           margin: 0 var(--padding-small);
+        }
+        @media (max-width: 600px) {
+          flex-direction: column;
+          align-items: center;
+          a {
+            margin: var(--padding-small);
+          }
         }
       }
     }

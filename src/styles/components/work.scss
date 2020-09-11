@@ -9,6 +9,9 @@
       margin: 0;
     }
   }
+  > span {
+    display: block;
+  }
   > span.in {
     /* ANIMATIONS */
     .project {
@@ -72,6 +75,7 @@
     }
   }
   .project {
+    position: relative;
     margin: var(--padding-huge) 0;
     padding: 0 var(--padding-smaller);
     @media (max-width: 767px) {
@@ -388,13 +392,13 @@
               position: absolute;
               left: -45px;
               top: -9px;
-              background: #5701b0;
+              background: rgba(40, 40, 40, 1);
 
-              // background: linear-gradient(
-              //   -30deg,
-              //   rgba(160, 10, 230, 1) 0%,
-              //   rgba(70, 50, 215, 1) 50%
-              // );
+              background: linear-gradient(
+                -30deg,
+                rgba(0, 25, 35, 1) -10%,
+                #24243e 120%
+              );
               width: calc(100% + 80px);
               height: 52px;
               z-index: -1;
@@ -494,10 +498,11 @@
                 z-index: -2;
                 width: 100%;
                 height: 100%;
+
                 background: linear-gradient(
                   -30deg,
-                  rgba(0, 40, 150, 1) 0%,
-                  rgba(0, 185, 235, 1) 90%
+                  rgba(0, 60, 150, 1) 0%,
+                  rgba(0, 165, 215, 1) 90%
                 );
               }
               &:last-child {
@@ -521,7 +526,7 @@
         min-height: 480px;
         background: #f1f1f1;
         box-shadow: 30px 0 50px 0 rgba(0, 0, 0, 0.05);
-
+        transition: opacity 250ms ease-out;
         .bg {
           width: 100%;
           height: 480px;
@@ -611,5 +616,9 @@
         }
       }
     }
+  }
+  .scroll-target-project {
+    position: absolute;
+    top: -300px;
   }
 }

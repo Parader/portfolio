@@ -4,6 +4,7 @@
   @media (max-height: 560px) {
     padding-top: var(--padding-large);
   }
+
   &.loading {
     .container {
       .grid {
@@ -62,11 +63,11 @@
         p {
           font-size: 16px;
           max-width: 370px;
-          transition: clip-path 1200ms cubic-bezier(0.83, 0.01, 0.2, 1),
-            transform 1200ms cubic-bezier(0.83, 0.01, 0.2, 1);
+          transition: clip-path 700ms cubic-bezier(0.83, 0.01, 0.2, 1),
+            transform 1500ms cubic-bezier(0.83, 0.01, 0.2, 1);
           clip-path: inset(0px 0px -2px 0px);
           transform: translate(0px, 0px);
-          transition-delay: 2200ms;
+          transition-delay: 2050ms;
         }
         .cta {
           // transition: clip-path 400ms $smoothTransition,
@@ -74,11 +75,11 @@
           // clip-path: inset(0px 0px -2px 0px);
           transform: translate(0px, 0px);
           transition: filter 500ms linear,
-            opacity 1000ms cubic-bezier(0.83, 0.01, 0.2, 1),
-            transform 1000ms cubic-bezier(0.83, 0.01, 0.2, 1);
+            opacity 900ms cubic-bezier(0.83, 0.01, 0.2, 1),
+            transform 1200ms cubic-bezier(0.83, 0.01, 0.2, 1);
           filter: blur(0px);
           opacity: 1;
-          transition-delay: 2350ms;
+          transition-delay: 2175ms;
         }
         .line {
           display: inline-block;

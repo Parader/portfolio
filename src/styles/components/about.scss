@@ -1,6 +1,6 @@
 .about-section {
   position: relative;
-  padding: var(--padding-large) 0;
+  padding: var(--padding-huge) 0 var(--padding-large);
   @media (max-width: 560px) {
     padding: var(--padding-large) 0 0;
   }
@@ -20,7 +20,7 @@
   }
   .anchor {
     position: absolute;
-    top: -100px;
+    top: 0px;
   }
   .container {
     position: relative;
@@ -141,16 +141,22 @@
           width: 100%;
           height: 100%;
           z-index: 2;
-          background: rgba(0, 0, 0, 0.2);
+          background: rgba(0, 100, 150, 0.4);
           display: flex;
           align-items: center;
           justify-content: center;
           transition: opacity 250ms $smoothTransition;
-          &:hover {
-            cursor: pointer;
-            svg {
-              transform: scale(1.05);
-              path {
+          mix-blend-mode: overlay;
+          &.video {
+            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 100, 150, 0.2);
+            mix-blend-mode: normal;
+            &:hover {
+              cursor: pointer;
+              svg {
+                transform: scale(1.05);
+                path {
+                }
               }
             }
           }

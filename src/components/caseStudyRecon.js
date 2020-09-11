@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 const CaseStudyRecon = ({ onClose }) => {
   const data = useStaticQuery(graphql`
     query reconCaseStudy {
-      image1: allFile(filter: { name: { eq: "case_study_1_p1" } }) {
+      image1: allFile(filter: { name: { eq: "case_study_2_1" } }) {
         edges {
           node {
             childImageSharp {
@@ -16,7 +16,7 @@ const CaseStudyRecon = ({ onClose }) => {
           }
         }
       }
-      image2: allFile(filter: { name: { eq: "case_study_1_p2" } }) {
+      image2: allFile(filter: { name: { eq: "case_study_2_2" } }) {
         edges {
           node {
             childImageSharp {
@@ -27,44 +27,11 @@ const CaseStudyRecon = ({ onClose }) => {
           }
         }
       }
-      image3: allFile(filter: { name: { eq: "case_study_1_p3" } }) {
+      image3: allFile(filter: { name: { eq: "case_study_2_p3" } }) {
         edges {
           node {
             childImageSharp {
               fluid(maxWidth: 1064, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-      image4: allFile(filter: { name: { eq: "case_study_1_p4" } }) {
-        edges {
-          node {
-            childImageSharp {
-              fluid(maxWidth: 1064, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-      image5: allFile(filter: { name: { eq: "case_study_1_p5" } }) {
-        edges {
-          node {
-            childImageSharp {
-              fluid(maxWidth: 1064, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-      image6: allFile(filter: { name: { eq: "case_study_1_p6" } }) {
-        edges {
-          node {
-            childImageSharp {
-              fluid(maxWidth: 648, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -77,7 +44,7 @@ const CaseStudyRecon = ({ onClose }) => {
     <div className="case-study recon-case-study">
       <div className="container">
         <div className="section-title">
-          <p className="pre-title">Case Study</p>
+          <p className="pre-title">Client project</p>
           <h3 className="title">Qostodian Recon</h3>
         </div>
         <div className="description">
@@ -92,34 +59,22 @@ const CaseStudyRecon = ({ onClose }) => {
             investigated&nbsp;granularly.
           </p>
           <p className="note">
-            Unfortunately the software related content for this project is under
-            non-disclosure agreement, so only public work is shown.
+            This project is not published yet, mockups does not represent the
+            current state of the product.
           </p>
         </div>
         <div className="gallery">
           <Img
-            className={`image image1`}
-            fluid={data.image6.edges[0].node.childImageSharp.fluid}
+            className={`image image3`}
+            fluid={data.image3.edges[0].node.childImageSharp.fluid}
           />
           <Img
             className={`image image2`}
             fluid={data.image2.edges[0].node.childImageSharp.fluid}
           />
           <Img
-            className={`image image3`}
-            fluid={data.image5.edges[0].node.childImageSharp.fluid}
-          />
-          <Img
-            className={`image image4`}
+            className={`image image1`}
             fluid={data.image1.edges[0].node.childImageSharp.fluid}
-          />
-          <Img
-            className={`image image5`}
-            fluid={data.image4.edges[0].node.childImageSharp.fluid}
-          />
-          <Img
-            className={`image image6`}
-            fluid={data.image3.edges[0].node.childImageSharp.fluid}
           />
         </div>
         <div className="footing">

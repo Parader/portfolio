@@ -19,7 +19,9 @@ const About = () => {
   const { photo1, photo2, photo3 } = useStaticQuery(
     graphql`
       query {
-        photo1: allFile(filter: { relativePath: { eq: "derick_bako.jpg" } }) {
+        photo1: allFile(
+          filter: { relativePath: { eq: "derick_bako_v2.jpg" } }
+        ) {
           edges {
             node {
               childImageSharp {
@@ -97,11 +99,12 @@ const About = () => {
       <div className="gallery">
         <div className="container">
           <figure className="rect rect-1">
+            <div className="overlay"></div>
             <Img fluid={photo3.edges[0].node.childImageSharp.fluid} />
           </figure>
           <figure className="rect rect-2">
             <div
-              className="overlay"
+              className="overlay video"
               onClick={() => {
                 if (video1.current.paused) {
                   video1.current.play()
@@ -132,14 +135,16 @@ const About = () => {
             </video>
           </figure>
           <figure className="rect rect-3">
+            <div className="overlay"></div>
             <Img fluid={photo2.edges[0].node.childImageSharp.fluid} />
           </figure>
           <figure className="rect rect-4">
+            <div className="overlay"></div>
             <Img fluid={photo1.edges[0].node.childImageSharp.fluid} />
           </figure>
           <figure className="rect rect-5">
             <div
-              className="overlay"
+              className="overlay video"
               onClick={() => {
                 if (video2.current.paused) {
                   video2.current.play()

@@ -22,43 +22,45 @@ const IndexPage = () => {
     let currentScrollBottom = scaleByPixelRatio(
       document.querySelector(".bubbleAnchor").getBoundingClientRect().top + 30
     )
-
+    const target = document.querySelector(".hero-section .line1")
     const onScroll = _.debounce(e => {
       if (!pointer1) {
         pointer1 = getPointer(5)
       }
-      if (!pointer2) {
-        pointer2 = getPointer("footer_ball")
-      }
-      currentScroll = scaleByPixelRatio(
-        document.querySelector(".hero-section .line1").getBoundingClientRect()
-          .top + 30
-      )
-      currentScrollBottom = scaleByPixelRatio(
-        document.querySelector(".bubbleAnchor").getBoundingClientRect().top + 30
-      )
+      // if (!pointer2) {
+      //   pointer2 = getPointer("footer_ball")
+      // }
+      // currentScroll = scaleByPixelRatio(
+      //   document.querySelector(".hero-section .line1").getBoundingClientRect()
+      //     .top + 30
+      // )
 
-      gsap.to(pointer1, 0.1, {
+      currentScroll = scaleByPixelRatio(target.offsetTop - window.scrollY)
+      // currentScrollBottom = scaleByPixelRatio(
+      //   document.querySelector(".bubbleAnchor").getBoundingClientRect().top + 30
+      // )
+
+      gsap.to(pointer1, 0.05, {
         y: currentScroll,
         onUpdate: () => {
           updatePointerMoveData(pointer1.proto, pointer1.x, pointer1.y)
         },
       })
       if (pointer2) {
-        gsap.to(pointer2, 0.1, {
-          y: currentScrollBottom,
-          onUpdate: () => {
-            if (pointer2 && !pointer2.holding) {
-              updatePointerMoveData(pointer2.proto, pointer2.x, pointer2.y)
-            }
-          },
-        })
+        // gsap.to(pointer2, 0.1, {
+        //   y: currentScrollBottom,
+        //   onUpdate: () => {
+        //     if (pointer2 && !pointer2.holding) {
+        //       updatePointerMoveData(pointer2.proto, pointer2.x, pointer2.y)
+        //     }
+        //   },
+        // })
       }
-    }, 100)
-    window.addEventListener("scroll", onScroll)
+    }, 10)
+    // window.addEventListener("scroll", onScroll)
 
     return () => {
-      window.removeEventListener("scroll", onScroll)
+      // window.removeEventListener("scroll", onScroll)
     }
   }, [])
   return (

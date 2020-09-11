@@ -77,7 +77,7 @@ const CaseStudyAdrenatrip = ({ onClose }) => {
     <div className="case-study adrenatrip-case-study">
       <div className="container">
         <div className="section-title">
-          <p className="pre-title">Case Study</p>
+          <p className="pre-title">Client project</p>
           <h3 className="title">Adrenatrip</h3>
         </div>
         <div className="description">
@@ -119,10 +119,16 @@ const CaseStudyAdrenatrip = ({ onClose }) => {
         <div className="footing">
           <div className="cta">
             <button onClick={onClose}>Close project</button>
-            <a href="https://adrenatrip.com" target="_blank">
+            <a href="https://adrenatrip.com" target="_blank" rel="noreferrer">
               <button> Visit website</button>
             </a>
-            <button onClick={onClose}>Next project</button>
+            <button
+              onClick={() => {
+                onClose("project.p2")
+              }}
+            >
+              Next project
+            </button>
           </div>
         </div>
       </div>

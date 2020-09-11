@@ -6,6 +6,7 @@ const ProjectBlock = ({ bg, prefix, suffix, name, id, cta, screen }) => {
   const classes = classNames("project", id)
   return (
     <div className={classes}>
+      <div className={`scroll-target-project project-${id}`}></div>
       <div className="container">
         <div className="title">
           <div className="wrap">

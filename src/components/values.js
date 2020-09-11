@@ -115,13 +115,97 @@ const Values = () => {
       <div className="container">
         <div className="section-title">
           <h2 className="pre-title">Values</h2>
-          <p className="title">Seven things I stand by</p>
+          <p className="title">Seven things I stand&nbsp;by</p>
+        </div>
+        <div className="bg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 289.01 251.99">
+            <circle cx="2.84" cy="2.84" r="2.84" fill="#545454" />
+            <circle cx="43.31" cy="2.84" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="2.84" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="2.84" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="2.84" r="2.84" fill="#545454" />
+            <circle cx="205.22" cy="2.84" r="2.84" fill="#545454" />
+            <circle cx="245.7" cy="2.84" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="2.84" r="2.84" fill="#545454" />
+            <circle
+              className="only"
+              cx="2.84"
+              cy="64.42"
+              r="2.84"
+              fill="#545454"
+            />
+            <circle cx="43.31" cy="64.42" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="64.42" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="64.42" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="64.42" r="2.84" fill="#545454" />
+            <circle cx="205.22" cy="64.42" r="2.84" fill="#545454" />
+            <circle cx="245.7" cy="64.42" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="64.42" r="2.84" fill="#545454" />
+            <circle cx="2.84" cy="126" r="2.84" fill="#545454" />
+            <circle cx="43.31" cy="126" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="126" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="126" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="126" r="2.84" fill="#545454" />
+            <circle cx="205.22" cy="126" r="2.84" fill="#545454" />
+            <circle cx="245.7" cy="126" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="126" r="2.84" fill="#545454" />
+            <circle cx="2.84" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="43.31" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="205.22" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="245.7" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="2.84" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="43.31" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="205.22" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="245.7" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="249.16" r="2.84" fill="#545454" />
+          </svg>
+        </div>
+        <div className="bg2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 289.01 251.99">
+            <circle cx="2.84" cy="126" r="2.84" fill="#545454" />
+            <circle cx="43.31" cy="126" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="126" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="126" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="126" r="2.84" fill="#545454" />
+            <circle
+              cx="205.22"
+              cy="126"
+              r="2.84"
+              fill="#545454"
+              className="only"
+            />
+            <circle cx="245.7" cy="126" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="126" r="2.84" fill="#545454" />
+            <circle cx="2.84" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="43.31" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="205.22" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="245.7" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="187.58" r="2.84" fill="#545454" />
+            <circle cx="2.84" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="43.31" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="83.79" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="124.27" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="164.74" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="205.22" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="245.7" cy="249.16" r="2.84" fill="#545454" />
+            <circle cx="286.17" cy="249.16" r="2.84" fill="#545454" />
+          </svg>
         </div>
       </div>
       <div className="swiper-container">
         <div className="swiper-wrapper">
           <div className="swiper-slide">
-            <p className="title">I'm here to help</p>
+            <p className="title">I'm here to help.</p>
             <p className="description">
               Keeping a posture of service makes a better work environment and
               creates great partnerships
@@ -159,12 +243,15 @@ const Values = () => {
             <p className="title">Learn.</p>
             <p className="description">
               Daily commitment to practice or learn a skill allows us to grow as
-              individuals and to leave ego aside.
+              individuals and opens our perspective.
             </p>
           </div>
           <div className="swiper-slide">
-            <p className="title">Share</p>
-            <p className="description">Empowering others</p>
+            <p className="title">Share, be transparent</p>
+            <p className="description">
+              Nothing becomes great when you keep it for yourself. Empowering
+              others with knowledge put ourselves in valuable positions.
+            </p>
           </div>
         </div>
 

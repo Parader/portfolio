@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import ReactDOM from "react-dom"
 import gsap from "gsap"
 import {
@@ -8,20 +8,26 @@ import {
   scaleByPixelRatio,
 } from "../lib/glsl"
 import Modal from "./modal"
+import _ from "lodash"
+
+const getPointer = id => {
+  return window.fluidSimulation.pointers.filter(p => p.id === id)[0]
+}
 
 const Foot = () => {
-  const [grabState, setGrabState] = useState({ holding: false })
   const footerRef = useRef()
   const writingTextRef = useRef()
   const cursorRef = useRef()
   const cta = useRef()
   const eventBoxRef = useRef()
+  const title = useRef()
+  let pointer2 = null
 
   let observer = null
   const options = {
     root: null,
     rootMargin: "0px 0px 0px 0px",
-    threshold: 0.5,
+    threshold: 0,
   }
 
   useEffect(() => {
@@ -40,7 +46,7 @@ const Foot = () => {
           window.innerWidth * 0.11
       ),
       y: scaleByPixelRatio(
-        document.querySelector(".bubbleAnchor").getBoundingClientRect().top + 30
+        document.querySelector(".bubbleAnchor").getBoundingClientRect().top + 20
       ),
       proto: new pointerPrototype(),
     }
@@ -67,7 +73,7 @@ const Foot = () => {
       point.x = scaleByPixelRatio(e.target.getBoundingClientRect().x)
       point.y = scaleByPixelRatio(e.target.getBoundingClientRect().y + 36)
       gsap.to(point, 0.2, {
-        x: "+=160",
+        x: "+=180",
         onUpdate: () => {
           if (isHovering) updatePointerMoveData(point.proto, point.x, point.y)
         },
@@ -88,7 +94,7 @@ const Foot = () => {
     let lastNumbers = [2, 9, 11, 8, 13]
     const getRandomSentence = () => {
       let sentence = ""
-      let i = Math.floor(Math.random() * 13) + 1
+      let i = Math.floor(Math.random() * 28) + 1
 
       if (lastNumbers.indexOf(i) !== -1) {
         return getRandomSentence()
@@ -134,6 +140,51 @@ const Foot = () => {
           case 13:
             sentence = "play a game"
             break
+          case 14:
+            sentence = "listen to people"
+            break
+          case 15:
+            sentence = "discuss ideas"
+            break
+          case 16:
+            sentence = "work hard, play hard"
+            break
+          case 17:
+            sentence = "play a game"
+            break
+          case 18:
+            sentence = "generate revenue"
+            break
+          case 19:
+            sentence = "compare ourselves to competition"
+            break
+          case 20:
+            sentence = "sketch interfaces"
+            break
+          case 21:
+            sentence = "improve something you've created"
+            break
+          case 22:
+            sentence = "look at user behaviors"
+            break
+          case 23:
+            sentence = "plan a marketing campaign"
+            break
+          case 24:
+            sentence = "sell online"
+            break
+          case 25:
+            sentence = "talk about our inspirations"
+            break
+          case 26:
+            sentence = "analyse a situation"
+            break
+          case 27:
+            sentence = "draw some sketches"
+            break
+          case 28:
+            sentence = "invest in ourselves"
+            break
           default:
             sentence = "an amazing website"
             break
@@ -167,6 +218,25 @@ const Foot = () => {
     }
     //
 
+    const onScroll = _.debounce(e => {
+      if (!pointer2) {
+        pointer2 = getPointer("footer_ball")
+      }
+
+      const part1 = window.scrollY - footerRef.current.offsetTop
+      let currentScroll = scaleByPixelRatio(
+        -part1 + title.current.offsetTop + 30
+      )
+      gsap.to(pointer2, 0.1, {
+        y: currentScroll,
+        onUpdate: () => {
+          if (!pointer2.holding) {
+            updatePointerMoveData(pointer2.proto, pointer2.x, pointer2.y)
+          }
+        },
+      })
+    }, 15)
+
     // intersection observer
     if (observer) observer.disconnect()
 
@@ -187,9 +257,12 @@ const Foot = () => {
               cursorTl.resume()
             }, 1200)
           }
+          window.addEventListener("scroll", onScroll)
           document.querySelector("header .about").classList.remove("active")
           document.querySelector("header .work").classList.remove("active")
           document.querySelector("header .contact").classList.add("active")
+        } else {
+          window.removeEventListener("scroll", onScroll)
         }
       })
     }, options)
@@ -220,10 +293,11 @@ const Foot = () => {
             window.fluidSimulation.pointers = [...p, p2]
 
             window.addEventListener("mousemove", e => {
+              const y = e.clientY > 140 ? e.clientY : 140
               updatePointerMoveData(
                 pointer,
                 scaleByPixelRatio(e.clientX),
-                scaleByPixelRatio(e.clientY)
+                scaleByPixelRatio(y)
               )
             })
             window.addEventListener(
@@ -253,7 +327,9 @@ const Foot = () => {
         </div>
 
         <div className="section-title off" style={{ display: "flex" }}>
-          <p className="title bubbleAnchor">seven way to contact&nbsp;me</p>
+          <p className="title bubbleAnchor" ref={title}>
+            seven ways to contact&nbsp;me
+          </p>
           <p className="post-title">For any inquiries or just to say hello.</p>
 
           <div className="wrap">

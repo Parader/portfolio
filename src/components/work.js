@@ -6,6 +6,7 @@ import AdrenatripLogo from "../images/adrenatrip_logo"
 import CaseStudyAdrenatrip from "./caseStudyAdrenatrip"
 import CaseStudyRecon from "./caseStudyRecon"
 import Modal from "./modal"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Work = () => {
   const data = useStaticQuery(graphql`
@@ -143,9 +144,8 @@ const Work = () => {
     observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          if (entry.target.classList.value.indexOf("in") === -1) {
-            entry.target.classList.add("in")
-          }
+          console.log(entry.target)
+          entry.target.classList.add("in")
           document.querySelector("header .about").classList.remove("active")
           document.querySelector("header .contact").classList.remove("active")
           document.querySelector("header .work").classList.add("active")
@@ -208,10 +208,13 @@ const Work = () => {
         />
         {popups.adrenatrip && (
           <Modal
-            onClose={() => {
+            onClose={(next = false) => {
               document.querySelector(".modal").classList.add("loading")
               setTimeout(() => {
                 setPopups({ adrenatrip: false })
+                if (next === "project.p2") {
+                  scrollTo(`.scroll-target-project.project-p2`)
+                }
               }, 350)
               document
                 .getElementsByTagName("html")[0]
@@ -308,7 +311,7 @@ const Work = () => {
       </span>
 
       <div className="container">
-        <div className="clients">
+        <div className="clients" title="previous clients">
           <div className="client lg2">
             <Img fluid={data.client1.edges[0].node.childImageSharp.fluid} />
           </div>

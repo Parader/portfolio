@@ -73,7 +73,7 @@ footer {
           &:hover {
             cursor: pointer;
             path {
-              fill: rgba(0, 165, 215, 1);
+              fill: rgba(0, 145, 195, 1);
             }
           }
           &:last-child {
@@ -112,7 +112,8 @@ footer {
           text-decoration: none;
           transition: color 250ms ease-out;
           &:hover {
-            color: rgba(0, 165, 215, 1);
+            color: rgba(0, 145, 195, 1);
+            border-bottom: 1px solid rgba(0, 145, 195, 1);
           }
         }
       }
@@ -123,10 +124,11 @@ footer {
       justify-content: flex-start;
       align-items: flex-start;
       .pre-title {
-        margin: 2px 0;
+        margin: 2px 0 0;
       }
       .title {
         font-size: 28px;
+        line-height: 32px;
       }
       .changing-text {
         min-height: 40px;
@@ -186,6 +188,7 @@ footer {
       max-width: 380px;
     }
     .insta-btn {
+      text-decoration: none;
       border: none;
       background: linear-gradient(
         40deg,
