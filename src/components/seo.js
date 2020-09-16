@@ -10,34 +10,43 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+function SEO({ lang, meta, location, title: pageName }) {
+  const { metaImage } = useStaticQuery(
     graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
+      query seo {
+        metaImage: allFile(filter: { name: { eq: "meta_image" } }) {
+          edges {
+            node {
+              publicURL
+              name
+            }
           }
         }
       }
     `
   )
-
-  const metaDescription = description || site.siteMetadata.description
-
+  const title = `Dérick P. | Digital Designer ${pageName}`
+  const metaDescription =
+    "I try to create delightful designs and user experiences using proven principles while keeping communication as first goal."
+  const image = metaImage.edges[0].node.publicURL
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          property: `og:type`,
+          content: "website",
+        },
+        {
+          property: `og:url`,
+          content: location.href,
         },
         {
           property: `og:title`,
@@ -48,16 +57,16 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: `og:image`,
+          content: image,
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          name: `twitter:url`,
+          content: location.href,
         },
         {
           name: `twitter:title`,
@@ -66,6 +75,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: image,
         },
       ].concat(meta)}
     />

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import Logo from "./logo"
 import scrollTo from "gatsby-plugin-smoothscroll"
+import { navigate } from "gatsby"
 
 const Header = () => {
   const headerRef = useRef()
@@ -19,6 +20,9 @@ const Header = () => {
               href="/#work"
               onClick={e => {
                 e.preventDefault()
+                if (document.querySelector(".page-404")) {
+                  navigate("/")
+                }
                 scrollTo("#work")
                 document.querySelector("header .work").classList.add("active")
               }}
@@ -31,6 +35,9 @@ const Header = () => {
               href="/#about"
               onClick={e => {
                 e.preventDefault()
+                if (document.querySelector(".page-404")) {
+                  navigate("/")
+                }
                 scrollTo("#about")
                 document.querySelector("header .about").classList.add("active")
               }}
@@ -43,6 +50,9 @@ const Header = () => {
               href="/#contact"
               onClick={e => {
                 e.preventDefault()
+                if (document.querySelector(".page-404")) {
+                  navigate("/")
+                }
                 scrollTo("#contact")
                 document
                   .querySelector("header .contact")

@@ -86,8 +86,9 @@ const CaseStudyAdrenatrip = ({ onClose }) => {
             previous and future traveling experiences.
           </p>
           <p>
-            <strong> The challenge:</strong> Giving a good and reliable feel so
-            users read articles and hopefully engage with the author.
+            <strong> The challenge:</strong> Creating an excellent reliable user
+            experience to encourage visitors to read articles and engage with
+            the author.
           </p>
         </div>
         <div className="gallery">

@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
 
 import DroneShot from "../images/drone_shots_v2.mp4"
-import TrickShot from "../images/trick_shots.mp4"
+import TrickShot from "../images/trick_shots_v3.mp4"
 
 const About = () => {
   const sectionRef = useRef()
@@ -32,7 +32,7 @@ const About = () => {
             }
           }
         }
-        photo2: allFile(filter: { relativePath: { eq: "derick_2.JPG" } }) {
+        photo2: allFile(filter: { relativePath: { eq: "derick_1.JPG" } }) {
           edges {
             node {
               childImageSharp {
@@ -88,11 +88,12 @@ const About = () => {
           <h2 className="pre-title">About me</h2>
           <p className="title">I say "what" a&nbsp;lot.</p>
           <p className="description">
-            I dare to ask questions, there are answers to any question.
+            I dare to ask questions. There are answers to any questions.
           </p>
           <p className="description">
-            In my free time I go outside, do a wide variety of sports, tricks
-            and play video games. Here are some moments I’ve&nbsp;captured.
+            When I’m not designing, I spend time outside, enjoy a wide variety
+            of sports, do tricks and play video games. Here are some moments
+            I’ve captured.
           </p>
         </div>
       </div>

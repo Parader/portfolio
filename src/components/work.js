@@ -144,7 +144,6 @@ const Work = () => {
     observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          console.log(entry.target)
           entry.target.classList.add("in")
           document.querySelector("header .about").classList.remove("active")
           document.querySelector("header .contact").classList.remove("active")

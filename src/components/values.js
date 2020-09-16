@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react"
 import Swiper from "swiper"
 
+let mySwiper = null
+
 const Values = () => {
   let currentSlide = 0
-  let mySwiper = null
   const nextArrow = useRef(null)
   const section = useRef()
   let observer = null
@@ -55,11 +56,10 @@ const Values = () => {
       loop: true,
       slidesPerView: 1,
       speed: 450,
-      slidesOffsetBefore: slideOffset(),
+      slidesOffsetBefore: slideOffset,
       threshold: 20,
       navigation: {
         nextEl: nextArrow.current,
-        prevEl: ".swiper-button-prev",
       },
       breakpoints: {
         560: {
@@ -212,45 +212,44 @@ const Values = () => {
             </p>
           </div>
           <div className="swiper-slide">
-            <p className="title">Have purpose, not style.</p>
+            <p className="title">Seek purpose, not style.</p>
             <p className="description">
-              Great work is achieved by defining a good strategy and then
+              Outstanding work is achieved by defining a good strategy and then
               supporting it with some dope visuals, not the other way around.
             </p>
           </div>
           <div className="swiper-slide">
             <p className="title">Observe.</p>
             <p className="description">
-              Taking time to be curious and to listen betters our perspective
-              and help brands bring more value to their audience.
+              Taking the time to listen and being curious expands perspectives
+              and ensures brands bring more value to their audience.
             </p>
           </div>
           <div className="swiper-slide">
             <p className="title">Communicate.</p>
             <p className="description">
-              Defining actors and establishing good communication channels
-              ensure everyone stay confident as projects grow.
+              Defining actors and establishing good communication channels is
+              critical for project growth and building trust.
             </p>
           </div>
           <div className="swiper-slide">
             <p className="title">Value life balance.</p>
             <p className="description">
-              Work isn't everything, having a diversified lifestyle makes people
-              more focus and creative.
+              Work isn't everything. Having a diversified lifestyle improves
+              focus and creativity.
             </p>
           </div>
           <div className="swiper-slide">
             <p className="title">Learn.</p>
             <p className="description">
-              Daily commitment to practice or learn a skill allows us to grow as
-              individuals and opens our perspective.
+              Daily commitment to practicing or learning a new skill allows us
+              to grow as individuals and expand our expertise.
             </p>
           </div>
           <div className="swiper-slide">
             <p className="title">Share, be transparent</p>
             <p className="description">
-              Nothing becomes great when you keep it for yourself. Empowering
-              others with knowledge put ourselves in valuable positions.
+              Greatness comes from sharing, not keeping knowledge to oneself.
             </p>
           </div>
         </div>

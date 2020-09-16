@@ -54,12 +54,12 @@ const CaseStudyRecon = ({ onClose }) => {
           </p>
           <p>
             <strong>The challenge:</strong> Demonstrate and familiarise
-            customers to the main application capabilities through a portable
-            software by offering a summary data analysis report that can be
-            investigated&nbsp;granularly.
+            customers with the main application capabilities through a portable
+            software with a data analysis report that can be investigated
+            granularly.
           </p>
           <p className="note">
-            This project is not published yet, mockups does not represent the
+            This project is not published yet, mockups do not represent the
             current state of the product.
           </p>
         </div>

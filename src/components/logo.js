@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Logo = () => {
@@ -24,7 +24,12 @@ const Logo = () => {
       to="/"
       onClick={e => {
         e.preventDefault()
-        scrollTo("html")
+        const el = document.querySelector(".page-404")
+        if (el) {
+          navigate("/")
+        } else {
+          scrollTo("html")
+        }
       }}
       className="logo"
     >

@@ -5,7 +5,7 @@ import {
   updatePointerMoveData,
   updatePointerDownData,
   scaleByPixelRatio,
-} from "../lib/glsl"
+} from "./fluidSimulation"
 import gsap, { Sine } from "gsap"
 import _ from "lodash"
 
@@ -27,8 +27,9 @@ const Intro = () => {
 
   useEffect(() => {
     //ball
-    // })
-
+    if (!window.fluidSimulation) {
+      window.fluidSimulation = { pointers: [] }
+    }
     let p1 = window.fluidSimulation.pointers.find(p => p.id == 5)
     if (p1 == null) p1 = new pointerPrototype()
     const titleDim = title.current.getBoundingClientRect()
@@ -45,7 +46,6 @@ const Intro = () => {
       repeat: -1,
       onUpdate: () => {
         updatePointerMoveData(p1, ball1.x, ball1.y)
-        // updatePointerMoveData(p2, p2.pos.x, p2.pos.y)
       },
     })
 
@@ -138,6 +138,7 @@ const Intro = () => {
       observer.disconnect()
       cta.current.removeEventListener("mouseover", onOver)
       cta.current.removeEventListener("mouseout", onOut)
+      window.removeEventListener("scroll", onScroll)
     }
   }, [])
   return (
@@ -147,9 +148,9 @@ const Intro = () => {
           <div className="content">
             <h1 ref={title}>
               <span className="line line1">
-                Remotely doing full&nbsp;stack&nbsp;design
+                I do user centered graphical design
               </span>
-              <span className="line line2"> as&nbsp;a&nbsp;freelancer</span>
+              <span className="line line2"> from home</span>
             </h1>
             <p>
               I believe the best user experiences are created with meaningful

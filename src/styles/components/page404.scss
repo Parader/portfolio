@@ -1,0 +1,31 @@
+.page-404 {
+  padding: 0;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .container {
+    text-align: center;
+  }
+  h1 {
+    line-height: 40px;
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 var(--padding-small);
+  }
+  p {
+    margin: 0 0 var(--padding-tiny);
+    &.extra-margin {
+      margin-bottom: var(--padding-medium);
+    }
+  }
+  .cta {
+    justify-content: center;
+    margin-bottom: var(--padding-smaller);
+    flex-direction: row;
+    display: inline-flex;
+    &.first {
+      margin-bottom: 0;
+    }
+  }
+}
