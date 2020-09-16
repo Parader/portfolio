@@ -532,6 +532,7 @@
           height: 480px;
           background-size: cover;
           background-position: center;
+          opacity: 1;
           transform: scale(1.2);
           filter: brightness(0.3);
           transition: opacity 200ms $smoothTransition,
