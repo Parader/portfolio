@@ -2,8 +2,8 @@ import React, { useRef, useEffect } from "react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
 
-import DroneShot from "../images/drone_shots_v2.mp4"
-import TrickShot from "../images/trick_shots_v3.mp4"
+import DroneShot from "../images/drone_shots_v3.mp4"
+import TrickShot from "../images/trick_shots_v4.mp4"
 
 const About = () => {
   const sectionRef = useRef()
