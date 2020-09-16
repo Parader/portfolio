@@ -106,7 +106,7 @@ const About = () => {
       observer.disconnect()
     }
   }, [])
-  console.log(thumbnail1.edges[0].node.childImageSharp.fluid.src)
+
   return (
     <div className="section about-section loading" ref={sectionRef}>
       <div className="anchor" id="about"></div>

@@ -52,7 +52,6 @@
         }
       }
       .swiper-button-next {
-        opacity: 0;
       }
     }
   }
@@ -120,11 +119,17 @@
       padding: var(--padding-small);
       transition: opacity 300ms $smoothTransition;
       transition-delay: 600ms;
+      animation: clickme 550ms $smoothTransition;
       @media (max-width: 560px) {
         right: 4vw;
         left: inherit;
       }
-      &:hover {
+      &.show-off {
+        transition-delay: 1300ms;
+      }
+
+      &:hover,
+      &.show-off {
         cursor: pointer;
         .wrap {
           #straight {

@@ -93,10 +93,15 @@ const Values = () => {
     // intersection observer
     if (observer) observer.disconnect()
 
+    let timeout = null
     observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.remove("loading")
+          nextArrow.current.classList.add("show-off")
+          timeout = setTimeout(() => {
+            nextArrow.current.classList.remove("show-off")
+          }, 1000)
           obs.unobserve(entry.target)
         }
       })
@@ -107,6 +112,9 @@ const Values = () => {
     return () => {
       observer.disconnect()
       mySwiper.destroy()
+      if (timeout) {
+        clearTimeout(timeout)
+      }
     }
   }, [])
 

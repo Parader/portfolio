@@ -143,12 +143,23 @@ const Work = () => {
   }
 
   useEffect(() => {
+    let timeout = null
+
     if (observer) observer.disconnect()
 
     observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("in")
+          if (!entry.target.classList.contains("in")) {
+            const target = entry.target.querySelector(".cta")
+            target.classList.add("show-off")
+
+            timeout = setTimeout(() => {
+              target.classList.remove("show-off")
+            }, 1700)
+
+            entry.target.classList.add("in")
+          }
           document.querySelector("header .about").classList.remove("active")
           document.querySelector("header .contact").classList.remove("active")
           document.querySelector("header .work").classList.add("active")
@@ -160,7 +171,12 @@ const Work = () => {
     observer.observe(p2Ref.current)
     observer.observe(p3Ref.current)
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+    }
   }, [])
 
   const [popups, setPopups] = useState({ adrenatrip: false, recon: false })
