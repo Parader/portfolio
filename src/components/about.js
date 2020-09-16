@@ -16,7 +16,7 @@ const About = () => {
     threshold: 0.2,
   }
 
-  const { photo1, photo2, photo3 } = useStaticQuery(
+  const { photo1, photo2, photo3, thumbnail1, thumbnail2 } = useStaticQuery(
     graphql`
       query {
         photo1: allFile(
@@ -54,6 +54,32 @@ const About = () => {
             }
           }
         }
+        thumbnail1: allFile(
+          filter: { relativePath: { eq: "trick_shots_cover.jpg" } }
+        ) {
+          edges {
+            node {
+              childImageSharp {
+                fluid(maxWidth: 380, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+        thumbnail2: allFile(
+          filter: { relativePath: { eq: "drone_shots_cover.jpg" } }
+        ) {
+          edges {
+            node {
+              childImageSharp {
+                fluid(maxWidth: 380, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
       }
     `
   )
@@ -80,6 +106,7 @@ const About = () => {
       observer.disconnect()
     }
   }, [])
+  console.log(thumbnail1.edges[0].node.childImageSharp.fluid.src)
   return (
     <div className="section about-section loading" ref={sectionRef}>
       <div className="anchor" id="about"></div>
@@ -131,7 +158,13 @@ const About = () => {
                 </g>
               </svg>
             </div>
-            <video className="video-player" loop muted ref={video1}>
+            <video
+              className="video-player"
+              loop
+              muted
+              ref={video1}
+              poster={thumbnail1.edges[0].node.childImageSharp.fluid.src}
+            >
               <source src={TrickShot} type="video/mp4" />
             </video>
           </figure>
@@ -171,7 +204,13 @@ const About = () => {
                 </g>
               </svg>
             </div>
-            <video className="video-player" loop muted ref={video2}>
+            <video
+              className="video-player"
+              loop
+              muted
+              ref={video2}
+              poster={thumbnail2.edges[0].node.childImageSharp.fluid.src}
+            >
               <source src={DroneShot} type="video/mp4" />
             </video>
           </figure>
