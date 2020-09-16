@@ -108,6 +108,7 @@ const Work = () => {
 
   const p1 = {
     image: data.image1.edges[0].node.childImageSharp.fluid.srcWebp,
+    noWebpImage: data.image1.edges[0].node.childImageSharp.fluid.src,
     prefix: `Branding & Web`,
     name: `Adrenatrip`,
     suffix: `Traveling blog`,
@@ -115,6 +116,7 @@ const Work = () => {
   }
   const p2 = {
     image: data.image2.edges[0].node.childImageSharp.fluid.srcWebp,
+    noWebpImage: data.image2.edges[0].node.childImageSharp.fluid.src,
     prefix: `UI & UX`,
     name: `Qostodian Recon`,
     suffix: `Data recognition platform`,
@@ -122,11 +124,13 @@ const Work = () => {
   }
   const p3 = {
     image: data.image3.edges[0].node.childImageSharp.fluid.srcWebp,
+    noWebpImage: data.image3.edges[0].node.childImageSharp.fluid.src,
     prefix: `Web development`,
     name: `Collaborations`,
     suffix: `previous work`,
     id: "p3",
   }
+
   const p1Ref = useRef()
   const p2Ref = useRef()
   const p3Ref = useRef()
@@ -160,6 +164,8 @@ const Work = () => {
   }, [])
 
   const [popups, setPopups] = useState({ adrenatrip: false, recon: false })
+  const isWebpCompatible =
+    typeof document !== "undefined" ? document.querySelector(".webp") : false
 
   return (
     <div className="section work-section">
@@ -170,7 +176,9 @@ const Work = () => {
               <div
                 className="bg"
                 style={{
-                  backgroundImage: `url(${p1.image})`,
+                  backgroundImage: isWebpCompatible
+                    ? `url(${p1.image})`
+                    : `url(${p1.noWebpImage})`,
                 }}
               ></div>
               <div className="logo">
@@ -234,7 +242,9 @@ const Work = () => {
               <div
                 className="bg"
                 style={{
-                  backgroundImage: `url(${p2.image})`,
+                  backgroundImage: isWebpCompatible
+                    ? `url(${p2.image})`
+                    : `url(${p2.noWebpImage})`,
                 }}
               >
                 <div className="pannel">
@@ -290,7 +300,9 @@ const Work = () => {
               <div
                 className="bg"
                 style={{
-                  backgroundImage: `url(${p3.image})`,
+                  backgroundImage: isWebpCompatible
+                    ? `url(${p3.image})`
+                    : `url(${p3.noWebpImage})`,
                 }}
               >
                 <div className="overlay"></div>

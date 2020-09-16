@@ -2,11 +2,44 @@ import React, { useEffect, useRef } from "react"
 import Logo from "./logo"
 import scrollTo from "gatsby-plugin-smoothscroll"
 import { navigate } from "gatsby"
+import _ from "lodash"
 
 const Header = () => {
   const headerRef = useRef()
   useEffect(() => {
     headerRef.current.classList.remove("loading")
+
+    let lastScroll = 0
+    let scrollDirection
+    const onScroll = _.debounce(
+      e => {
+        const footer = document.querySelector("footer")
+        if (
+          footer &&
+          (window.scrollY < 200 || window.scrollY > footer.offsetTop - 300)
+        ) {
+          headerRef.current.classList.remove("scroll-hide")
+          return null
+        }
+        const currentScrollDirection = scrollDirection
+        if (window.scrollY > lastScroll) {
+          scrollDirection = "down"
+        } else {
+          scrollDirection = "up"
+        }
+        lastScroll = window.scrollY
+        const scrollChanged = currentScrollDirection !== scrollDirection
+        if (scrollChanged) {
+          headerRef.current.classList.toggle("scroll-hide")
+        }
+      },
+      10,
+      { leading: true, trailing: false }
+    )
+    window.addEventListener("scroll", onScroll)
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+    }
   }, [])
   return (
     <header className="loading" ref={headerRef}>

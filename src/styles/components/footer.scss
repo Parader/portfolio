@@ -96,7 +96,12 @@ footer {
             transition-delay: 750ms;
           }
           &.git {
+            width: 26px;
             transition-delay: 800ms;
+          }
+          &.slack {
+            width: 28px;
+            transition-delay: 850ms;
           }
         }
       }
@@ -125,6 +130,9 @@ footer {
       align-items: flex-start;
       .pre-title {
         margin: 2px 0 0;
+        &:before {
+          width: 32%;
+        }
       }
       .title {
         font-size: 28px;
@@ -167,6 +175,7 @@ footer {
           transform: translateY(0px);
           transition: transform 600ms $smoothTransition;
           transition-delay: 600ms;
+          width: 32%;
         }
       }
     }
@@ -188,6 +197,7 @@ footer {
       max-width: 380px;
     }
     .insta-btn {
+      position: relative;
       text-decoration: none;
       border: none;
       background: linear-gradient(
@@ -202,8 +212,29 @@ footer {
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 1px;
+        background: linear-gradient(
+          40deg,
+          #405de6,
+          #5851db,
+          #833ab4,
+          #c13584,
+          #e1306c,
+          #fd1d1d,
+          rgba(249, 237, 50, 1)
+        );
+        width: 100%;
+        opacity: 0.1;
+      }
       &:hover {
-        border-bottom: 1px solid #833ab4;
+        &:after {
+          opacity: 1;
+        }
       }
     }
     .copyrights {

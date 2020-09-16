@@ -7,9 +7,11 @@ header {
   display: flex;
   justify-content: space-between;
   height: 78px;
-
   background: $whitefont;
-
+  transition: transform 400ms $smoothTransition;
+  &.scroll-hide {
+    transform: translateY(-100%);
+  }
   .left {
     width: 100%;
     max-width: 236px;

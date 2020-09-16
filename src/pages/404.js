@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { multipleSplats } from "../components/fluidSimulation"
 import FluidSimulation from "../components/fluidSimulation"
 
@@ -25,9 +24,9 @@ const NotFoundPage = ({ location }) => (
       </div>
       <p>or</p>
       <div className="cta">
-        <Link to="/">
+        <a href="/">
           <button>Go to my portfolio</button>
-        </Link>
+        </a>
       </div>
     </div>
   </div>

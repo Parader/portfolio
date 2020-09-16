@@ -215,14 +215,14 @@ const Values = () => {
             <p className="title">Seek purpose, not style.</p>
             <p className="description">
               Outstanding work is achieved by defining a good strategy and then
-              supporting it with some dope visuals, not the other way around.
+              supporting it with dope visuals, not the other way around.
             </p>
           </div>
           <div className="swiper-slide">
             <p className="title">Observe.</p>
             <p className="description">
               Taking the time to listen and being curious expands perspectives
-              and ensures brands bring more value to their audience.
+              and ensures brands bring more value to their&nbsp;audience.
             </p>
           </div>
           <div className="swiper-slide">
