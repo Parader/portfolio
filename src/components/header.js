@@ -18,6 +18,7 @@ const Header = () => {
           footer &&
           (window.scrollY < 200 || window.scrollY > footer.offsetTop - 300)
         ) {
+          scrollDirection = "up"
           headerRef.current.classList.remove("scroll-hide")
           return null
         }
