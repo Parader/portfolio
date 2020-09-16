@@ -148,7 +148,7 @@ const Intro = () => {
           <div className="content">
             <h1 ref={title}>
               <span className="line line1">
-                I do user centered graphical design
+                I do user centered graphical&nbsp;design
               </span>
               <span className="line line2"> from home</span>
             </h1>

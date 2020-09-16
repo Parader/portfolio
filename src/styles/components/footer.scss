@@ -129,7 +129,7 @@ footer {
       justify-content: flex-start;
       align-items: flex-start;
       .pre-title {
-        margin: 2px 0 0;
+        line-height: 140%;
         &:before {
           width: 32%;
         }
@@ -137,6 +137,7 @@ footer {
       .title {
         font-size: 28px;
         line-height: 32px;
+        left: 0px;
       }
       .changing-text {
         min-height: 40px;

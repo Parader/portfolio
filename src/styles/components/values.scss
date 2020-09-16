@@ -1,36 +1,36 @@
 .values-section {
-  position:relative;
+  position: relative;
   padding: var(--padding-huge) 0;
-  .container{
-    .bg, .bg2{
+  .container {
+    .bg,
+    .bg2 {
       position: absolute;
-      top:20px;
+      top: 20px;
       width: 10vw;
-      height:300px;
+      height: 300px;
       right: 5vw;
       z-index: -1;
       min-width: 130px;
-      @media(max-width:768px){
-
+      @media (max-width: 768px) {
         right: -5vw;
       }
-      svg{
-        overflow:visible;
-        circle{
-          fill:rgba(0,150,210,0.8);
-          &.only{
-            transform:translateX(-20vw);
+      svg {
+        overflow: visible;
+        circle {
+          fill: rgba(0, 150, 210, 0.8);
+          &.only {
+            transform: translateX(-20vw);
           }
         }
       }
     }
-    .bg2{
+    .bg2 {
       right: inherit;
       top: inherit;
       bottom: -165px;
       left: -50px;
       svg circle.only {
-        transform:translateX(0) translateY(-10vh);
+        transform: translateX(0) translateY(-10vh);
       }
     }
   }
@@ -95,7 +95,7 @@
       left: calc((100vw - 1240px) / 2);
       font-size: 98px;
       font-weight: 700;
-      color: rgba(0,150,210,1);
+      color: rgba(0, 150, 210, 1);
       opacity: 0;
       transition: transform 500ms $smoothTransition,
         opacity 350ms $smoothTransition;
@@ -113,7 +113,7 @@
     }
     .swiper-button-next {
       min-width: 188px;
-      width:188px;
+      width: 188px;
       position: absolute;
       bottom: 30px;
       left: 50vw;
@@ -121,8 +121,8 @@
       transition: opacity 300ms $smoothTransition;
       transition-delay: 600ms;
       @media (max-width: 560px) {
-        right:: 4vw;
-        left:inherit;
+        right: 4vw;
+        left: inherit;
       }
       &:hover {
         cursor: pointer;
@@ -136,8 +136,8 @@
           #bottomArrow {
             stroke-dashoffset: -20;
           }
-          .pos{
-            color:rgba(0,150,210,1);
+          .pos {
+            color: rgba(0, 150, 210, 1);
           }
         }
       }
@@ -168,5 +168,4 @@
       }
     }
   }
-
 }
