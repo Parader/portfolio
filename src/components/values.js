@@ -255,7 +255,7 @@ const Values = () => {
             </p>
           </div>
           <div className="swiper-slide">
-            <p className="title">Share, be transparent</p>
+            <p className="title">Share, be transparent.</p>
             <p className="description">
               Greatness comes from sharing, not keeping knowledge to oneself.
             </p>

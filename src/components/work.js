@@ -11,7 +11,7 @@ import scrollTo from "gatsby-plugin-smoothscroll"
 const Work = () => {
   const data = useStaticQuery(graphql`
     query Work {
-      curriculum: allFile(filter: { name: { eq: "cv_2020" } }) {
+      curriculum: allFile(filter: { name: { eq: "derick_paradis" } }) {
         edges {
           node {
             publicURL
