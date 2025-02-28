@@ -120,9 +120,9 @@ const CaseStudyAdrenatrip = ({ onClose }) => {
         <div className="footing">
           <div className="cta">
             <button onClick={onClose}>Close project</button>
-            <a href="https://adrenatrip.com" target="_blank" rel="noreferrer">
+            {/* <a href="https://adrenatrip.com" target="_blank" rel="noreferrer">
               <button> Visit website</button>
-            </a>
+            </a> */}
             <button
               onClick={() => {
                 onClose("project.p2")

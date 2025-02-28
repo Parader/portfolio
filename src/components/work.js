@@ -11,7 +11,7 @@ import scrollTo from "gatsby-plugin-smoothscroll"
 const Work = () => {
   const data = useStaticQuery(graphql`
     query Work {
-      curriculum: allFile(filter: { name: { eq: "derick_paradis" } }) {
+      curriculum: allFile(filter: { name: { eq: "CV" } }) {
         edges {
           node {
             publicURL
@@ -216,16 +216,20 @@ const Work = () => {
                 onClick={e => {
                   e.preventDefault()
                   setPopups({ adrenatrip: true })
-                  document
+                 
+                  setTimeout(()=>{
+                    document.querySelector(".modal").classList.remove("loading")
+                    document
                     .getElementsByTagName("html")[0]
                     .classList.add("modal-open")
+                  })
                 }}
               >
                 View project
               </a>
-              <a href="https://adrenatrip.com" target="_blank">
+              {/* <a href="https://adrenatrip.com" target="_blank">
                 Visit website
-              </a>
+              </a> */}
             </>
           }
         />
@@ -237,6 +241,16 @@ const Work = () => {
                 setPopups({ adrenatrip: false })
                 if (next === "project.p2") {
                   scrollTo(`.scroll-target-project.project-p2`)
+                  setTimeout(()=>{
+                    setPopups({ recon: true })
+                    setTimeout(()=>{
+                      document
+                      .getElementsByTagName("html")[0]
+                      .classList.add("modal-open")
+                      document.querySelector(".modal").classList.remove("loading")
+                    })
+                    
+                  },650)
                 }
               }, 350)
               document
@@ -285,8 +299,11 @@ const Work = () => {
                 e.preventDefault()
                 setPopups({ recon: true })
                 document
-                  .getElementsByTagName("html")[0]
-                  .classList.add("modal-open")
+                .getElementsByTagName("html")[0]
+                .classList.add("modal-open")
+                setTimeout(()=>{
+                  document.querySelector(".modal").classList.remove("loading")
+                })
               }}
             >
               View project
@@ -296,10 +313,13 @@ const Work = () => {
         {popups.recon && (
           <Modal
             onClose={() => {
-              setPopups({ recon: false })
-              document
-                .getElementsByTagName("html")[0]
-                .classList.remove("modal-open")
+              document.querySelector(".modal").classList.add("loading")
+              setTimeout(()=>{
+                setPopups({ recon: false })
+                document
+                  .getElementsByTagName("html")[0]
+                  .classList.remove("modal-open")
+              },350)
             }}
           >
             {onClose => {

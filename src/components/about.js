@@ -32,7 +32,7 @@ const About = () => {
             }
           }
         }
-        photo2: allFile(filter: { relativePath: { eq: "derick_1.JPG" } }) {
+        photo2: allFile(filter: { relativePath: { eq: "dogo.jpg" } }) {
           edges {
             node {
               childImageSharp {
@@ -43,7 +43,7 @@ const About = () => {
             }
           }
         }
-        photo3: allFile(filter: { relativePath: { eq: "derick_audrey.jpg" } }) {
+        photo3: allFile(filter: { relativePath: { eq: "travel.jpg" } }) {
           edges {
             node {
               childImageSharp {
@@ -55,7 +55,7 @@ const About = () => {
           }
         }
         thumbnail1: allFile(
-          filter: { relativePath: { eq: "trick_shots_cover.jpg" } }
+          filter: { relativePath: { eq: "gala2.jpg" } }
         ) {
           edges {
             node {
@@ -113,7 +113,7 @@ const About = () => {
       <div className="container">
         <div className="section-title">
           <h2 className="pre-title">About me</h2>
-          <p className="title">I say "what" a&nbsp;lot.</p>
+          <p className="title">I say "why" a&nbsp;lot.</p>
           <p className="description">
             I dare to ask questions. There are answers to any questions.
           </p>
@@ -130,7 +130,7 @@ const About = () => {
             <div className="overlay"></div>
             <Img fluid={photo3.edges[0].node.childImageSharp.fluid} />
           </figure>
-          <figure className="rect rect-2">
+          {/* <figure className="rect rect-2">
             <div
               className="overlay video"
               onClick={() => {
@@ -167,6 +167,10 @@ const About = () => {
             >
               <source src={TrickShot} type="video/mp4" />
             </video>
+          </figure> */}
+          <figure className="rect rect-2">
+            <div className="overlay"></div>
+            <Img fluid={thumbnail1.edges[0].node.childImageSharp.fluid} />
           </figure>
           <figure className="rect rect-3">
             <div className="overlay"></div>
@@ -221,3 +225,5 @@ const About = () => {
 }
 
 export default About
+
+          

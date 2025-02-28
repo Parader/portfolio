@@ -430,7 +430,7 @@ const Foot = () => {
               </div>
             </div>
             <p>
-              <a href="mailto:hello@derickparadis.ca">hello@derickparadis.ca</a>
+              <a href="mailto:hello@derickparadis.ca">derickparadis@gmail.com</a>
             </p>
             <p>
               <a href="tel:5812350650">581.235.0650</a>

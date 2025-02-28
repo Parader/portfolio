@@ -28,13 +28,13 @@
         margin-top: var(--padding-huge);
         justify-content: center;
 
-        a {
+        a,button {
           margin: 0 var(--padding-small);
         }
         @media (max-width: 600px) {
           flex-direction: column;
           align-items: center;
-          a {
+          a,button {
             margin: var(--padding-small);
           }
         }
