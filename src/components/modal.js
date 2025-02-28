@@ -7,7 +7,7 @@ const Modal = ({ children, onClose, ...props }) => {
   useEffect(() => {
     setAnimation({ loading: false })
   }, [])
-  const classes = classNames("modal", { loading: animation.loading })
+  const classes = classNames("modal", "loading", { loading: animation.loading })
   return createPortal(
     <div className={classes}>
       <div className="close" onClick={onClose}>
